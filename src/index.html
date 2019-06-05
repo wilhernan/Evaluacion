@@ -1,9 +1,130 @@
 <html>
   <head>
-    <script src="//localhost:35729/livereload.js"></script>
+    <title>SYNERGY-GB</title>
+    <meta charset="UTF-8"/>
+
+      <script src="//localhost:35729/livereload.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="../css/bootstrap.min.css" crossorigin="anonymous">            
+      <script src="../js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" type="text/css" href="../src/static/css/index.css" th:href="@{/css/index.css}">      
+        
+
+      <script>
+          function doOn(obj)
+        {
+
+            if(obj.id=="lmenu1")
+            {
+                document.getElementById("def1").style.display="none";
+                document.getElementById("def").style.display="block";
+            }
+            if(obj.id=="textmenu")
+            {
+                document.getElementById("def").style.display="none";
+
+                document.getElementById("def1").innerHTML='<li><a id="V" onclick="lmenu1(this);" >V</a></li><li><a id="E" onclick="lmenu1(this);" >E</a></li><li><a id="P" onclick="lmenu1(this);" >P</a></li>';
+
+                document.getElementById("def1").style.display="block";
+            }
+           
+        }
+        function lmenu1(obj)
+        {
+            document.getElementById("textmenu").value=obj.innerHTML;
+            document.getElementById("def1").style.display="none";
+            document.getElementById("def").style.display="none";
+        }
+         
+      window.onload = function () {
+      
+      document.formularioContacto.addEventListener('submit', validarFormulario);
+      }
+
+      function validarFormulario(evObject)
+      {
+        evObject.preventDefault();
+
+        var todoCorrecto = true;
+        var formulario = document.formularioContacto;
+
+        for (var i=0; i<formulario.length; i++) 
+        {
+          if(formulario[i].type =='text') 
+          {
+            if (formulario[i].value == null || formulario[i].value.length == 0 || /^\s*$/.test(formulario[i].value))
+            {
+              alert (formulario[i].name+ ' no puede estar vacío o contener sólo espacios en blanco');
+              todoCorrecto=false;
+            }
+          }
+        }
+            if (todoCorrecto ==true) 
+            {
+              formulario.submit();
+            }
+      }
+      function confirmar()
+        {
+            if(confirm('Recuperar Contraseña'))
+            {
+              alert ("Recuperar Contraseña");
+            }
+      }
+      
+    </script>
+           
   </head>
   <body>
-    <h1> Grunt is running! </h1>
-    <h2> :) </h2>
+    <div class="modal-dialog text-center">
+      <div class="col-sm-8 main-section">        
+        <div class="modal-content">
+          <div class="text-left">
+              <h5 class="mode-title" id="myModalLabel">Inicio de Sesion</h5>
+          </div>          
+          <form class="col-20" name="formularioContacto" id="formulario" method="POST" action="https://prueba-admision-web.herokuapp.com/session">
+            
+            <div class="input-group">  
+              <input type="text" id="textmenu" name="tipo" class="form-control" placeholder="Seleccione..."  onkeyup="doOn(this);" required />
+              <div class="input-group-append">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="lmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="doOn(this);">                    
+                  <span class="sr-only">Toggle Dropdown</span> 
+                </button>             
+                <ul id="def" class="dropdown-menu" role="menu" aria-labelledby="lmenu1">
+                  <li><a id="V" class="dropdown-item" onclick="lmenu1(this);" role ="menuitem">V</a></li>
+                  <li><a id="E" class="dropdown-item" onclick="lmenu1(this);" role ="menuitem">E</a></li>
+                  <li><a id="P" class="dropdown-item" onclick="lmenu1(this);" role ="menuitem">P</a></li>
+                </ul>
+                <ul id="def1" class="dropdown-menu" style="display:none"></ul>  
+              </div> 
+            </div>          
+                      
+            <div class="form-group" >
+              <input type="text" id="user" name="username" class="form-control" placeholder="Usuario" required/>
+            </div>
+            <div class="form-group" >
+              <input type="password" id="contrasena" name="password" class="form-control" placeholder="Contraseña" required/>
+            </div>
+            <div class="col-12 forgot text-left" >              
+              <a href="#" onclick="return confirm('Recuperar Contraseña');">¿Olvidó su contrasena?</i></a>                
+            </div>           
+            
+            <button type="submit" class="btn btn-primary" id="btn"> Aceptar </button> 
+            
+          </form>          
+        </div>
+      </div>
+    </div>    
+
+    <div class="col-12 text-left">
+        <h1 class="modo-footer" id="MyModalFooter">SYNERGY-GB</h1>
+    </div> 
+    
+    <script src="../js/peticion.js" ></script>    
+          
   </body>
 </html>

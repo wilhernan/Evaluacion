@@ -1,0 +1,83 @@
+body{
+    background: url(../img/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.main-section {
+    margin: 3 auto;
+    margin-top: 25%;
+    margin-left: 75%;
+    padding: 3;
+}
+
+.modal-content {    
+    background-color: white;
+    opacity: .60;
+    padding: 10px 20px;
+    box-shadow: 3px 3px 3px #848484; 
+}
+
+.form-group input{
+    height: 30px;
+    font-size: 15px;
+    border: 3px;
+    box-shadow: 0px 0px 3px;
+    margin-top: 5%;   
+}
+
+#lmenu1{
+    margin-top: 15px;     
+    font-size: 15px;
+    opacity: .85;
+    font-style: inherit;
+    border: 3px;
+    box-shadow: 0px 0px 3px; 
+    height: 30px;
+   
+}
+#MyModalLabel {
+    margin-top: 10px;
+}
+
+#MyModalFooter {
+    color: rgb(3, 33, 99);
+    text-decoration-style: solid;
+}
+
+#resultado {
+    color: rgb(3, 33, 99);
+    text-decoration-style: solid;
+}
+
+#TimeLine {
+	color: black;
+    text-decoration-style: solid;
+}
+
+.forgot {
+    margin-right: 70%;
+    padding-bottom: 20px;
+    margin-top: -10px;
+}
+
+#textmenu {
+    margin-top: 15px;
+    margin-left: 50%;
+    opacity: .65;
+    height: 30px;
+    font-size: 15px;
+    border: 3px;
+    box-shadow: 0px 0px 3px; 
+   
+}
+
+#alert {
+    margin-top: -30%;
+    margin-left: 20%;
+    font-style: oblique;
+    font-size: 15px;
+}
+
+.error_input {
+    border : 2px solid red;
+}

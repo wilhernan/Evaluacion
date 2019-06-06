@@ -1,0 +1,26 @@
+{
+  "name": "admision",
+  "version": "1.0.0",
+  "description": "Test-Integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ODASILVAPESTANA/Test-Integration.git"
+  },
+  "author": "Wilfredo_Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ODASILVAPESTANA/Test-Integration/issues"
+  },
+  "homepage": "https://github.com/ODASILVAPESTANA/Test-Integration#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "properties-reader": "0.0.16",
+    "request": "^2.88.0",
+    "sha1": "^1.1.1"
+  }
+}

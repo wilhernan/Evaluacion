@@ -60,18 +60,9 @@ function validar_login (username, password, type){
 	  })
 		
 	  .done(function(datos){
+		  var dat = JSON.stringify (datos);		 
 		  
-		var dat = " ";
-		for (var c = 0; c < datos.length; c++) {
-                    var infodat = " * " + datos[c].id;
-					infodat += " - " + datos[c].title;
-                    infodat += " - " + datos[c].url;
-                    infodat += " - " + datos[c].thumbnailUrl + " ";
-                    dat += infodat;
-			}
-			dat += " ";
-		  //var dat = JSON.stringify (datos);
-	alert =(dat);
+			alert =(dat);
 			localStorage.setItem("storageName",dat);		
 	
 			window.location = "../src/TimeLine.html"

@@ -16,8 +16,21 @@
 		
 			window.onload = function () {
 			var test = localStorage.getItem("storageName")
-			document.getElementById("TimeLine").innerHTML = test;
-			$('#TimeLine').text(test)
+			test = JSON.parse(test);
+			let res = document.querySelector('#res');
+			res.innerHTML = '';
+			
+			for (let c of test) {
+				res.innerHTML += `
+					<tr> 
+						<td>${c.id} </td>
+						<td>${c.title} </td>
+						<td>${c.url} </td>
+						<td>${c.thumbnailUrl}</td>
+					</tr> 
+			`              
+			}
+			
 			}
 			
 		</script> 
@@ -25,11 +38,25 @@
 		
     </head>
     <body> 
-		<form id= "formulario2">
-			<div class="col-12 text-center" > 
-				<h1 id="resultado"> Resultado Obtenido </h1>
+		<form id= "formulario2">		
+			<div class="container col-12 text-center" > 
+			<h2 id="resultado"> Resultado Obtenido </h2>
+				<div class="section col-12 text-center" >
+					<table id="Tabla">
+						<thead>
+							<tr id="titulo">
+								<th>ID</th>	
+								<th>TITLE</th>	
+								<th>URL</th>	
+								<th>THUMBNAIL</th>	
+							</tr>
+							<tbody id="res">
+							</tbody>	
+						</thead>
+					</table>
+				</div>
 			</div>
-			<div class="col-12 text-left" id="TimeLine" > </div>
+		
 		</form>
 		
 		  

@@ -1,19 +1,21 @@
 'use strict';
 
-
+var formulario = document.getElementById("formulario");
 
 formulario.addEventListener('submit', function(e){
 	e.preventDefault();
-	
-	var formulario = document.getElementById("formulario");
+		
 	
 	var datos = new FormData(formulario);
 	let username = datos.get('username');
 	let password = datos.get('password');
-	let type = datos.get('tipo');
+	let type = datos.get('tipo');	
+  
+	 
+		validar_login(username, password, type);
+	  
 
-	validar_login(username, password, type);
-	
+		
 
 function validar_login (username, password, type){   
 
@@ -65,7 +67,7 @@ function validar_login (username, password, type){
 			alert =(dat);
 			localStorage.setItem("storageName",dat);		
 	
-			window.location = "../src/TimeLine.html"
+			window.location = "../src/TimeLine.html";
 
 	  })  
 	  .fail(function(datos){

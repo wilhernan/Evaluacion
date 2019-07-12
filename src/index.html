@@ -38,44 +38,15 @@
             document.getElementById("textmenu").value=obj.innerHTML;
             document.getElementById("def1").style.display="none";
             document.getElementById("def").style.display="none";
-        }
-         
-      window.onload = function () {
-      
-      document.formularioContacto.addEventListener('submit', validarFormulario);
-      }
-
-      function validarFormulario(evObject)
-      {
-        evObject.preventDefault();
-
-        var todoCorrecto = true;
-        var formulario = document.formularioContacto;
-
-        for (var i=0; i<formulario.length; i++) 
+        }        
+                 
+		function confirmar()
         {
-          if(formulario[i].type =='text') 
-          {
-            if (formulario[i].value == null || formulario[i].value.length == 0 || /^\s*$/.test(formulario[i].value))
-            {
-              alert (formulario[i].name+ ' no puede estar vacío o contener sólo espacios en blanco');
-              todoCorrecto=false;
-            }
-          }
+            alert ("Recuperar Contraseña");
+            
         }
-            if (todoCorrecto ==true) 
-            {
-              formulario.submit();
-            }
-      }
-      function confirmar()
-        {
-            if(confirm('Recuperar Contraseña'))
-            {
-              alert ("Recuperar Contraseña");
-            }
-      }
-      
+			
+	
     </script>
            
   </head>
@@ -86,7 +57,7 @@
           <div class="text-left">
               <h5 class="mode-title" id="myModalLabel">Inicio de Sesion</h5>
           </div>          
-          <form class="col-20" name="formularioContacto" id="formulario" method="POST" action="https://prueba-admision-web.herokuapp.com/session">
+          <form class="col-20" name="formularioContacto" id="formulario">
             
             <div class="input-group">  
               <input type="text" id="textmenu" name="tipo" class="form-control" placeholder="Seleccione..."  onkeyup="doOn(this);" required />
@@ -104,26 +75,45 @@
             </div>          
                       
             <div class="form-group" >
-              <input type="text" id="user" name="username" class="form-control" placeholder="Usuario" required/>
+              <input type="text" id="user" name="username" class="form-control" placeholder="Usuario" required />
             </div>
             <div class="form-group" >
-              <input type="password" id="contrasena" name="password" class="form-control" placeholder="Contraseña" required/>
+              <input type="password" id="contrasena" name="password" class="form-control" placeholder="Contraseña" required />
             </div>
             <div class="col-12 forgot text-left" >              
-              <a href="#" onclick="return confirm('Recuperar Contraseña');">¿Olvidó su contrasena?</i></a>                
+              <a href="#" onclick="confirmar(this);">¿Olvidó su contrasena?</i></a>                
             </div>           
             
             <button type="submit" class="btn btn-primary" id="btn"> Aceptar </button> 
-            
-          </form>          
-        </div>
-      </div>
-    </div>    
-
+			
+				  <!-- <!-- Modal content--> 
+				    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog"> -->
+					  <!-- <div class="modal-dialog" role="document"> -->
+						<!-- <div class="modal-content"> -->
+						  <!-- <div class="modal-header"> -->
+							<!-- <h5 class="modal-title">Error...</h5> -->
+							<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+							  <!-- <span aria-hidden="true">&times;</span> -->
+							<!-- </button> -->
+						  <!-- </div> -->
+						  <!-- <div class="modal-body"> -->
+							<!-- <p>Debe Ingresar la información Solicitada</p> -->
+						  <!-- </div> -->
+						  <!-- <div class="modal-footer"> -->
+							<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>							 -->
+						  <!-- </div> -->
+						<!-- </div> -->
+					  <!-- </div> -->
+					<!-- </div>			  	 -->
+	
+		</form>
+       </div>
+	 </div>
+	</div>   
     <div class="col-12 text-left">
         <h1 class="modo-footer" id="MyModalFooter">SYNERGY-GB</h1>
-    </div> 
-    
+    </div> 	
+	    
     <script src="../js/peticion.js" ></script>    
           
   </body>

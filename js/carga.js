@@ -1,21 +1,28 @@
 'use strict';
 
-const inputUser = document.querySelector('#user');
-const inputContrasena = document.querySelector('#contrasena');
-const inputTipo = document.querySelector('#textmenu');
-var botonIngresar = document.querySelector('#btn');
+var form = document.getElementById("formulario");
 
-botonIngresar.addEventListener('click', function(){
-  cargar_datos();
-});
-
-
-function cargar_datos(){
-    let username = inputUser.value;
-    let password = inputContrasena.value;
-    let type = inputTipo.value;
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+  var c = true,
+      elementos = this.elements,
+      total = elementos.length;
   
-  validar_login(username, password, type);
-}
+  for (var i = 0; i < total; i++){
+    if (!elementos[i].value.length){				  
+			
+	  alert ("Debes de ingresar el " + elementos[i].name);		      
+      elementos[i].focus();
+      c = false;
+      break;
+    }
+  }
+  
+  if (c == true){
+    this.submit();
+  }
+}, false);
+
+
 
 

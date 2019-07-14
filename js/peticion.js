@@ -42,11 +42,12 @@ function validar_login (username, password, type){
         timeline(route2);
       })
 
-      .fail(function(datos,jqXHR,){
+      .fail(function(datos){
  
-        console.log("Todo Salio Mal");
-        console.log(datos.cid,datos.status);
-        alert(datos.cid,datos.status);
+        console.log("Todo Salio Mal");   
+		var fail = datos;
+		fail = JSON.stringify(fail);		
+        alert(fail);
    
      });        
 
@@ -72,9 +73,10 @@ function validar_login (username, password, type){
 	  })  
 	  .fail(function(datos){
 		console.log("Todo Salio Otra vez Mal");
-		console.log(datos);
-		alert(datos);
-	    $("#TimeLine").html(dat);
+		var fail = datos;
+		fail = JSON.stringify(fail);		
+        alert(fail);
+	    $("#TimeLine").html(fail);
 	  });
 	  
 	};
